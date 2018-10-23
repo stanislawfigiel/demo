@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<xhtml xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+        <!--<link href="../static/css/" th:href="@{/css/styles.css}" rel="stylesheet" />-->
+
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <h2>CRM CUSTOMER RELATIONSHIP MANAGER</h2>
+        </div>
+    </div>
+
+    <div id="container">
+        <div id="content">
+            <p th:text="'Hello, ' + ${name} + '!'"/>
+            <input type="button"  value="Add customer"
+                   onclick="window.location.href='showFormForAdd'; return false;"
+                   class="add-button"/>
+
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd" th:each="customer : ${customers}">
+                    <td th:text="${customer.id}">text</td>
+                    <!--<td><a href="#" th:text="${message.title}">Title ...</a></td>-->
+                    <td th:text="${customer.firstName}">Text ...</td>
+                    <td th:text="${customer.lastName}">Text ...</td>
+                    <td th:text="${customer.email}">Text ...</td>
+                    <td><a th:href="@{/customer/displayFormForEdit(id=${customer.id})}">Edit</a></td>
+                    <td><a th:href="@{/customer/deleteCustomer(id=${customer.id})}"
+                    onclick="if(!(confirm('Are You shure You want to delete this row?'))) return false;">Delete</a></td>
+                </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+
+    </body>
+</xhtml>

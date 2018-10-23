@@ -1,0 +1,10 @@
+{"id":1, "firstName":"Jas", "lastName": "WWWWWWWW","active": true, "address":{
+  "street": "aaa street",
+  "city": "CITY CITY",
+  "state": "Pensylwania",
+  "zip":"62-987",
+  "country":"POLAND"
+},
+"languages":["Java", "C#", ".NET", "JavaScript"],
+  "country":"POland"
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<xhtml xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet"/>
+        <link href="../static/css/add-customer-style.css" th:href="@{/css/add-customer-style.css}" rel="stylesheet"/>
+
+    </head>
+    <body>
+    <div id="wrapper">
+        <div id="header">
+            <h2>CRM CUSTOMER RELATIONSHIP MANAGER</h2>
+        </div>
+    </div>
+
+    <div id="container">
+        <h3>Save customer</h3>
+        <form action="#" th:action="@{/customer/saveCustomer}" th:object="${customer}" method="post">
+            <input type="hidden" th:field="*{id}" >
+            <table>
+                <tbody>
+                <tr>
+                    <td><label>First name:</label></td>
+                    <td><input type="text" th:field="*{firstName}"/></td>
+                </tr>
+                <tr>
+                    <td><label>Last name:</label></td>
+                    <td><input type="text" th:field="*{lastName}"/></td>
+                </tr>
+                <tr>
+                    <td><label>Email:</label></td>
+                    <td><input type="text" th:field="*{email}"/></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><input type="submit" value="Save" class="save"/></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </form>
+
+        <div style="clear:both;"></div>
+        <p>
+            <a href="/customer/list?page=0" >Back to List</a>
+        </p>
+    </div>
+    </body>
+</xhtml>
